@@ -1,3 +1,4 @@
+# Program author = Süleyman Yılmaz
 import qrcode
 
 def create_vcard(first_name, last_name, organization, phone, email, address):
@@ -28,8 +29,6 @@ qr.make(fit=True)
 
 # QR kodu görüntüle
 img = qr.make_image(fill_color="black", back_color="white")
-img.save("elektronik_kartvizit_qr2.png") # Bilgisayarda gözükücek olan QR kod ismi
+img.save("elektronik_kartvizit_qr.png") # Bilgisayarda gözükücek olan QR kod ismi
 
 print("Elektronik kartvizit QR kodu oluşturuldu.")
-
-## Programı yazan : Süleyman YILMAZ.
