@@ -1,20 +1,18 @@
-## Installation
+## İndirme
 
-1. Clone this project to your computer:
+1. Projeyi bilgisayarınıza klonlayınız:
 
     ```bash
     git clone https://github.com/suleyman-yilmaz/kareKod-olusturucu.git
     ```
-3. Install the necessary dependencies:
+2. Gerekli bağımlılıkları yükleyin:
 
     ```bash
     pip install qrcode
     ```
 
-
-
-## Running
-- **Step 1:** Please fill in (change) the required fields for business card information.
-- **Step 2:** Run the program after filling in the information.
-- **Step 3:** After running the program, it will end with the text 'Elektronik kartvizit QR kodu oluşturuldu.'.
-- **Step 4:** A file named elektronik_kartvizit_qr.png will be created in the directory where the program is located and you can start using your electronic business card by scanning the qr code from your phone.
+## Çalıştırma
+- **Adım 1:** Kartvizit bilgileri için lütfen gerekli alanları doldurunuz (değiştiriniz).
+- **Adım 2:** Bilgileri doldurduktan sonra programı çalıştırın.
+- **Adım 3:** Programı çalıştırdıktan sonra 'Elektronik kartvizit QR kodu oluşturuldu.' yazısı ile sonlanacaktır.
+- **Adım 4:** Programın bulunduğu dizinde elektronik_kartvizit_qr.png adında bir dosya oluşturulacak ve telefonunuzdan qr kodu tarayarak elektronik kartvizitinizi kullanmaya başlayabilirsiniz.
