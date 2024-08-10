@@ -9,13 +9,13 @@ def create_vcard(first_name, last_name, organization, phone, email, address):
 # Kartvizit bilgileri
 first_name = "İsim Giriniz"
 last_name = "Soy İsim Giriniz"
-organization = " Şirket İsmi Giriniz"
-phone = " Telefon Numarasi Giriniz"
+organization = "Şirket İsmi Giriniz"
+phone = "Telefon Numarası Giriniz"
 email = "Mail Adresi Giriniz"
 address = "Adres Giriniz"
 
 # vCard oluştur
-vcard_data = create_vcard(first_name, last_name, organization, phone, email, address,)
+vcard_data = create_vcard(first_name, last_name, organization, phone, email, address)
 
 # vCard verilerini içeren bir QR kod oluştur
 qr = qrcode.QRCode(
@@ -24,11 +24,12 @@ qr = qrcode.QRCode(
     box_size=10,
     border=4,
 )
+
 qr.add_data(vcard_data)
 qr.make(fit=True)
 
-# QR kodu görüntüle
+# QR kodu görüntüle ve kaydet
 img = qr.make_image(fill_color="black", back_color="white")
-img.save("elektronik_kartvizit_qr.png") # Bilgisayarda gözükücek olan QR kod ismi
+img.save("elektronik_kartvizit_qr.png") # Bilgisayarda görünecek olan QR kod ismi
 
 print("Elektronik kartvizit QR kodu oluşturuldu.")
