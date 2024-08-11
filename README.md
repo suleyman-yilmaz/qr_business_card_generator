@@ -40,7 +40,7 @@ Teşekkürler:
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/suleyman-yilmaz"><img src="https://avatars.githubusercontent.com/u/111224947?v=4?s=100" width="100px;" alt="Süleyman YILMAZ"/><br /><sub><b>Süleyman YILMAZ</b></sub></a><br /><a href="https://github.com/suleyman-yilmaz" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/suleyman-yilmaz"><img src="https://avatars.githubusercontent.com/u/111224947?v=4" width="100px;" alt="Süleyman YILMAZ"/><br /><sub><b>Süleyman YILMAZ</b></sub></a><br /><a href="https://github.com/suleyman-yilmaz" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/bahadirelibol"><img src="https://avatars.githubusercontent.com/u/142039579?v=4" width="100px;" alt="Bahadır Elibol"/><br /><sub><b>Bahadır Elibol</b></sub></a><br /><a href="https://github.com/bahadirelibol" title="Code">💻</a></td>
     </tr>
   </tbody>
