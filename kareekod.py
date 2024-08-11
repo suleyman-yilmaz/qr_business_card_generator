@@ -2,18 +2,44 @@ import tkinter as tk
 from tkinter import messagebox, filedialog
 
 import customtkinter as ctk
-
 import qrcode
-
 from PIL import Image, ImageTk
 
+# Türkçe karakterleri Latin harflerine dönüştürme fonksiyonu
+def replace_turkish_chars(text):
+    replacements = {
+        'ç': 'c', 'Ç': 'C',
+        'ğ': 'g', 'Ğ': 'G',
+        'ı': 'i', 'I': 'I',
+        'ö': 'o', 'Ö': 'O',
+        'ş': 's', 'Ş': 'S',
+        'ü': 'u', 'Ü': 'U'
+    }
+    for turkish, latin in replacements.items():
+        text = text.replace(turkish, latin)
+    return text
 
 # vCard formatında bir veri oluşturuluyor
 def create_vcard(first_name, last_name, organization, phone, email, address):
-    vcard = f"BEGIN:VCARD\nVERSION:3.0\nFN:{first_name} {last_name}\nORG:{organization}\nTEL:{phone}\nEMAIL:{email}\nADR:{address}"
+    # Türkçe karakterleri Latin harflerine dönüştürme
+    first_name = replace_turkish_chars(first_name)
+    last_name = replace_turkish_chars(last_name)
+    organization = replace_turkish_chars(organization)
+    email = replace_turkish_chars(email)
+    address = replace_turkish_chars(address)
+
+    vcard = f"BEGIN:VCARD\nVERSION:3.0\nN:{last_name};{first_name};;;\nFN:{first_name} {last_name}"
+    
+    if organization:
+        vcard += f"\nORG:{organization}"
+    vcard += f"\nTEL:{phone}"
+    if email:
+        vcard += f"\nEMAIL:{email}"
+    if address:
+        vcard += f"\nADR:{address}"
+    
     vcard += "\nEND:VCARD"
     return vcard
-
 
 # QR kodunu oluşturma
 def generate_qr():
@@ -24,9 +50,9 @@ def generate_qr():
     email = entry_email.get()
     address = entry_address.get()
 
-    # Girişlerin tümünün doldurulup doldurulmadığını kontrol etme
-    if not (first_name and last_name and organization and phone and email and address):
-        messagebox.showwarning("Giriş Hatası", "Lütfen tüm alanları doldurun.")
+    # Zorunlu alanların doldurulup doldurulmadığını kontrol etme
+    if not (first_name and last_name and phone):
+        messagebox.showwarning("Giriş Hatası", "Lütfen isim, soyisim ve telefon numarası alanlarını doldurun.")
         return
 
     # vCard verisini oluştur
@@ -60,7 +86,7 @@ def save_qr():
         return
 
     file_path = filedialog.asksaveasfilename(defaultextension=".png",
-                                           filetypes=[("PNG files", "*.png"), ("All files", "*.*")])
+                                             filetypes=[("PNG files", "*.png"), ("All files", "*.*")])
     if file_path:
         img.save(file_path)
         messagebox.showinfo("Başarı", f"QR kodu {file_path} olarak kaydedildi!")  # Başarı mesajı
@@ -77,6 +103,7 @@ def clean_entry():
     entry_phone.delete(0, "end")
     entry_email.delete(0, "end")
     entry_address.delete(0, "end")
+    qr_image_label.configure(image="")
 
 
 # Uygulama penceresini oluşturma
@@ -85,22 +112,22 @@ app.title("vCard QR Kod Oluşturucu")
 app.geometry("800x700")
 
 # Bilgi giriş alanları
-entry_first_name = ctk.CTkEntry(app, placeholder_text="İsim")
+entry_first_name = ctk.CTkEntry(app, placeholder_text="İsim", width=250)
 entry_first_name.pack(pady=5)
 
-entry_last_name = ctk.CTkEntry(app, placeholder_text="Soyisim")
+entry_last_name = ctk.CTkEntry(app, placeholder_text="Soyisim", width=250)
 entry_last_name.pack(pady=5)
 
-entry_organization = ctk.CTkEntry(app, placeholder_text="Şirket İsmi")
+entry_organization = ctk.CTkEntry(app, placeholder_text="Şirket İsmi", width=250)
 entry_organization.pack(pady=5)
 
-entry_phone = ctk.CTkEntry(app, placeholder_text="Telefon Numarası")
+entry_phone = ctk.CTkEntry(app, placeholder_text="Telefon Numarası", width=250)
 entry_phone.pack(pady=5)
 
-entry_email = ctk.CTkEntry(app, placeholder_text="Mail Adresi")
+entry_email = ctk.CTkEntry(app, placeholder_text="Mail Adresi", width=250)
 entry_email.pack(pady=5)
 
-entry_address = ctk.CTkEntry(app, placeholder_text="Adres")
+entry_address = ctk.CTkEntry(app, placeholder_text="Adres", width=250)
 entry_address.pack(pady=5)
 
 # QR kodu gösterme alanını oluşturma
