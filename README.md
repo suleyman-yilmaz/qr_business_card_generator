@@ -15,7 +15,7 @@ The project requires Python 3.7 or higher. You can install the project by follow
 1. Clone the project on your computer:
 
     ```bash
-    https://github.com/suleyman-yilmaz/qr_business_card_generator.git
+    git clone https://github.com/suleyman-yilmaz/qr_business_card_generator.git
     ```
 2. Install the necessary dependencies:
 
@@ -68,7 +68,7 @@ Proje, Python 3.7 veya daha üstü bir sürüm gerektirir. Aşağıdaki adımlar
 1. Projeyi bilgisayarınıza klonlayınız:
 
     ```bash
-    https://github.com/suleyman-yilmaz/qr_business_card_generator.git
+    git clone https://github.com/suleyman-yilmaz/qr_business_card_generator.git
     ```
 2. Gerekli bağımlılıkları yükleyin:
 
